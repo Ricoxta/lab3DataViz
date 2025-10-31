@@ -77,15 +77,15 @@
 
             <div id="side-panel">
      
-                <h2>Earthquakes in Mexico and Surrounding Areas in the Last Month (30 Days)</h2>
+                <h2>Earthquakes within Mexico and Surrounding Areas in the Last Month (30 Days)</h2>
                 <button id="sortMag">Sort by Magnitude</button>
                 <button id="sortDate">Sort by Date</button>
      
                 <table>
                     <tr>
-                        <th>id</th>
+                        <th>location</th>
                         <th>magnitude</th>
-                        <th>timestamp</th>
+                        <th>date</th>
                     </tr>
                 </table>
      
@@ -112,22 +112,6 @@
             map.on('load', function loadingData() {
 
 
-            map.addSource('mexico', {
-                type: 'geojson',
-                data: mexico
-            });
-
-            map.addLayer({
-                'id': 'mexico-layer',
-                'type': 'fill',
-                'source': 'mexico',
-                'paint': {
-                    // 'fill-color': '#0080ff', // blue color fill
-                    'fill-color': '#297B25',
-                    'fill-opacity': 0.3
-                }
-            });
-
             map.addSource('earthquakes', {
                 type: 'geojson',
                 data: earthquakes
@@ -144,6 +128,24 @@
                     'circle-stroke-color': 'white'
                 }
             });
+
+            map.addSource('mexico', {
+                type: 'geojson',
+                data: mexico
+            });
+
+            map.addLayer({
+                'id': 'mexico-layer',
+                'type': 'fill',
+                'source': 'mexico',
+                'paint': {
+                    // 'fill-color': '#0080ff', // blue color fill
+                    'fill-color': '#297B25',
+                    'fill-opacity': 0.3
+                }
+            });
+
+
 
             });
 
